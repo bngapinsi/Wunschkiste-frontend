@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-wunsch-form',
@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './wunsch-form.html',
   styleUrl: './wunsch-form.css',
 })
-export class WunschForm {}
+export class WunschForm implements OnInit{
+  
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+}

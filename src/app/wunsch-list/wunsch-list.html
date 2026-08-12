@@ -5,5 +5,20 @@
     <a routerLink="/neu" class="btn btn-primary">+ Neuer Wunsch</a>
  </div>
 
-  
+ <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let wunsch of wuensche">
+        <div class="card" style="width: 18rem;">
+        <img *ngIf= "wunsch.bildUrl" src="wunsch.bildUrl" class="card-img-top" alt="Wunschbild">
+            <div class="card-body">
+             <h5 class="card-title">{{ wunsch.titel }}</h5>
+             <p *ngIf= "wunsch.notiz" class="card-text">{{ wunsch.notiz }} </p>
+             <p class="card-text">{{ wunsch.kategorie }} · {{ wunsch.preis }} € </p>
+             <a href="#" class="btn btn-primary">Bearbeiten</a>
+             <a *ngIf= "wunsch.link" href="wunsch.link" class="card-link">link</a>
+            </div>
+        </div>
+    </div>
+ </div>
+
+  <p *ngIf="wuensche.length === 0">Noch keine Wünsche vorhanden.</p>
 </div>

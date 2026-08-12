@@ -18,7 +18,7 @@ export interface WunschItem{
 })
 
 export class Wunsch {
-  private apiUrl = 'http://localhost:4200/wuensche';
+  private apiUrl = 'http://localhost:3000/wuensche';
 
   constructor(private http: HttpClient) {}
 

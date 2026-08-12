@@ -23,7 +23,17 @@ export class WunschList implements OnInit{
     this.wunschService.getAll().subscribe({
       next: (data) => this.wuensche = data,
       error: (err) => console.error('Fehler beim Laden der Wünsche: ', err)
+    });
+  }
+
+  loeschen(_id: string): void {
+    this.wunschService.delete(_id).subscribe({
+      next: () => {
+        this.wuensche = this.wuensche.filter(w => w.id !== _id )
+      },
+      error: (err) => console.error('Fehler beim Löschen:', err)
     })
   }
+
   
 }
