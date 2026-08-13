@@ -10,25 +10,25 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
   styleUrl: './wunsch-form.css',
 })
 export class WunschForm implements OnInit{
-  wunsch: WunschItem = {
+  wunsch: WunschItem = { //Startobjekt
       titel:'',
       kategorie:'',
-      preis: 0,
+      preis: null,
       link:'',
       bildUrl:'',
       notiz:'',
   };
 
   istBearbeitung = false;
-  private wunschId: string | null = null;
+  private wunschId: string | null = null; //speichert ID: entweder Text ID oder leer(null)
 
   private wunschService = inject(Wunsch);
-  private route = inject(ActivatedRoute);
+  private route = inject(ActivatedRoute); //Zugriff auf information über aktuelle Adresse im Browser(um id aus URL auszulesen)
   private router = inject(Router);
 
 
   ngOnInit(): void {
-    this.wunschId = this.route.snapshot.paramMap.get('id');
+    this.wunschId = this.route.snapshot.paramMap.get('id'); //schaut in die Webadresse
 
     if (this.wunschId) {
       this.istBearbeitung = true;
@@ -40,6 +40,11 @@ export class WunschForm implements OnInit{
   }
 
   speichern(): void {
+
+    if(this.wunsch.preis === 0) {
+      this.wunsch.preis = 0;
+    }
+     
     if (this.istBearbeitung && this.wunschId) {
       this.wunschService.update(this.wunschId, this.wunsch).subscribe({
         next: () => this.router.navigate(['/wuensche']),

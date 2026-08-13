@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface WunschItem{
-  id?:string;
-  titel:string;
-  kategorie:string;
-  preis:number;
-  link?:string;
-  bildUrl?:string;
-  notiz?:string;
+  id?: string;
+  titel: string;
+  kategorie: string;
+  preis: number | null;
+  link?: string;
+  bildUrl?: string;
+  notiz?: string;
 
 }
 
