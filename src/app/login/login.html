@@ -1,3 +1,19 @@
 <div class="container mt-4" style="max-width: 400px;">
     <h2>Willkommen</h2>
+
+    <ul class="nav nav tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link" [class.active]="modus === 'anmelden'"
+               (click)="modusWechseln('anmelden')" style="cursor: pointer;">Anmelden</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" [class.active]="modus === 'registrieren'"
+               (click)="modusWechseln('anmelden')" style="cursor: pointer;">Registrieren</a>
+        </li>
+    </ul>
+
+    <div *ngIf="fehlerText" class="alert alert-danger"> {{ fehlerText }}</div>
+
+    
 </div>
