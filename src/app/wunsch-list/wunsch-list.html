@@ -2,8 +2,9 @@
  <div class="d-flex justify-content-between align-items-center mb-3">
     <!-- der Vorname aus dem Auth-Service, gefolgt von "s Wunschkiste" -->
     <h1>{{ name() }}s Wunschkiste</h1>
-    <a routerLink="/neu" class="btn btn-primary">+ Neuer Wunsch</a>
  </div>
+
+ <a routerLink="/neu" class="btn btn-primary position-fixed bottom-0 end-0 m-5">+ Neuer Wunsch</a>
 
  <div class="row">
     <div class="col-md-4 mb-3" *ngFor="let wunsch of wuensche">
