@@ -15,5 +15,18 @@
 
     <div *ngIf="fehlerText" class="alert alert-danger"> {{ fehlerText }}</div>
 
-    
+    <form *ngIf="modus === 'anmelden'" (ngSubmit)="anmelden()">
+        <div class="mb-3">
+           <label class="form-label">Benutzername</label> 
+           <input type="text" class="form-control" [(ngModel)]="benutzername" name="benutzername" required>
+
+        </div>
+        <div class="mb-3">
+           <label class="form-label">Passwort</label>
+           <input type="password" class="form-control" [(ngModel)]="passwort" name="passwort" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Anmelden</button>
+    </form>
+
+
 </div>
