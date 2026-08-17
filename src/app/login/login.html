@@ -9,13 +9,13 @@
 
         <li class="nav-item">
             <a class="nav-link" [class.active]="modus === 'registrieren'"
-               (click)="modusWechseln('anmelden')" style="cursor: pointer;">Registrieren</a>
+               (click)="modusWechseln('registrieren')" style="cursor: pointer;">Registrieren</a>
         </li>
     </ul>
 
     <div *ngIf="fehlerText" class="alert alert-danger"> {{ fehlerText }}</div>
 
-    <form *ngIf="modus === 'anmelden'" (ngSubmit)="anmelden()">
+    <form *ngIf="modus === 'anmelden' " (ngSubmit)="anmelden()">
         <div class="mb-3">
            <label class="form-label">Benutzername</label> 
            <input type="text" class="form-control" [(ngModel)]="benutzername" name="benutzername" required>
@@ -27,7 +27,7 @@
         <button type="submit" class="btn btn-primary w-100">Anmelden</button>
     </form>
 
-    <form *ngIf="modus === 'registrieren'" (ngSubmit)="registrieren()">
+    <form *ngIf="modus === 'registrieren' " (ngSubmit)="registrieren()">
         <div class="mb-3">
             <label class="form-label">Vorname</label>
             <input type="text" class="form-control" [(ngModel)]="vorname" name="vorname" required>
