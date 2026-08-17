@@ -19,7 +19,6 @@
         <div class="mb-3">
            <label class="form-label">Benutzername</label> 
            <input type="text" class="form-control" [(ngModel)]="benutzername" name="benutzername" required>
-
         </div>
         <div class="mb-3">
            <label class="form-label">Passwort</label>
@@ -28,5 +27,24 @@
         <button type="submit" class="btn btn-primary w-100">Anmelden</button>
     </form>
 
+    <form *ngIf="modus === 'registrieren'" (ngSubmit)="registrieren()">
+        <div class="mb-3">
+            <label class="form-label">Vorname</label>
+            <input type="text" class="form-control" [(ngModel)]="vorname" name="vorname" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nachname</label>
+            <input type="text" class="form-control" [(ngModel)]="nachname" name="nachname" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Benutzername</label>
+            <input type="text" class="form-control" [(ngModel)]="benutzername" name="benutzername" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Passwort</label>
+            <input type="text" class="form-control" [(ngModel)]="passwort" name="passwort" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Registrieren</button>
+    </form>
 
 </div>
