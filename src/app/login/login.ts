@@ -38,18 +38,28 @@ export class Login {
       vorname: this.vorname,
       nachname: this.nachname,
       passwort: this.neuesPasswort
-    });
-    this.router.navigate(['/wuensche']);
+    }).subscribe({
+      next: (nutzer) => {
+      this.auth.getName().set(nutzer.vorname);
+      this.router.navigate(['/wuensche']);
+      },
+      error: () => {
+        this.fehlerText = 'Registrierung fehlgeschlagen.';
+      }
+    })
+    
   }
 
   anmelden(): void {
-    const erfolgreich = this.auth.anmelden(this.benutzername, this.passwort);
-    if(erfolgreich) {
-      this.router.navigate(['/wuensche']);
-    }
-    else {
-      this.fehlerText = 'Benutzername oder Passwort falsch.';
-    }
+    this.auth.anmelden(this.benutzername, this.passwort).subscribe({
+      next: (nutzer) => {
+        this.auth.getName().set(nutzer.vorname);
+        this.router.navigate(['/wuensche']);
+      },
+      error: () => {
+        this.fehlerText = 'Benutzername oder Passwort falsch.';
+      }
+    });
   }
   
 }

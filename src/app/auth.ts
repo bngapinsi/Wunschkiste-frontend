@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
+import { Observable } from 'rxjs';
 //Struktur eines registrierten Nutzers
 
 export interface Nutzer{
@@ -12,8 +14,9 @@ export interface Nutzer{
   providedIn: 'root',
 })
 export class Auth {
-  //simuliert eine Datenbank der registrierten Nuztzer - nur im Brwoser - Speicher
-  private nutzerListe: Nutzer[] = [];
+  private apiUrl = 'http://localhost:3000';
+
+  constructor(private http: HttpClient) {}
 
   private currentName = signal<string>('');
 
@@ -21,21 +24,13 @@ export class Auth {
     return this.currentName;
   }
 
-  //Registrierung: lrigt einen neuen Nutzer an und merkt sich sofort den Vornamen
-  registrieren(nutzer: Nutzer): void {
-    this.nutzerListe.push(nutzer);
-    this.currentName.set(nutzer.vorname);
+  //Registrierung: legt einen neuen Nutzer im Backend an
+  registrieren(nutzer: Nutzer): Observable<Nutzer>{
+   return this.http.post<Nutzer>(`${this.apiUrl}/registrieren`, nutzer);
   }
 
-  //Anmeldung:sucht den Nutzer per Benutzername, gibt true/false zurück
-  anmelden(benutzername: string, passwort: string): boolean {
-    const gefunden = this.nutzerListe.find(
-      n => n.benutzername === benutzername && n.passwort === passwort
-    );
-    if (gefunden) {
-      this.currentName.set(gefunden.vorname);
-      return true;
-    }
-    return false;
+  //Anmeldung: prüft benutzername und passwort im Backend
+  anmelden(benutzername: string, passwort: string): Observable<Nutzer>{
+   return this.http.post<Nutzer>(`${this.apiUrl}/anmelden`, {benutzername, passwort});
   }
 }
