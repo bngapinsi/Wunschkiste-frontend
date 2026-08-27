@@ -14,6 +14,10 @@ import { Auth } from '../auth';
 export class WunschList implements OnInit{
   wuensche: WunschItem[] = [];
 
+  suchbegriff = '';
+
+  ausgewaehlteKategorie = 'Alle';
+
   private wunschService = inject(Wunsch);
   private auth = inject(Auth);
 
@@ -24,6 +28,25 @@ export class WunschList implements OnInit{
       next: (data) => this.wuensche = data,
       error: (err) => console.error('Fehler beim Laden der Wünsche: ', err)
     });
+  }
+
+  get kategorie(): string[] {
+    const vorhandene = Array.from(new Set(this.wuensche.map(w => w.kategorie).filter(k => !!k)));
+    return ['Alle', ...vorhandene];
+  }
+
+  get gefiltereWuensche(): WunschItem[] {
+    return this.wuensche.filter(wunsch => {
+      const passtKategorie = this.ausgewaehlteKategorie === 'Alle' || wunsch.kategorie === this.ausgewaehlteKategorie;
+
+      const passtSuche = wunsch.titel.toLowerCase().includes(this.suchbegriff.toLowerCase());
+
+      return passtKategorie && passtSuche;
+    });
+  }
+
+  kategorieWaehlen(kategorie: string): void {
+    this.ausgewaehlteKategorie = kategorie;
   }
 
   loeschen(_id: string): void {

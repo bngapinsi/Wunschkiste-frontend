@@ -6,8 +6,21 @@
 
  <a routerLink="/neu" class="btn btn-primary position-fixed bottom-0 end-0 m-5">+ Neuer Wunsch</a>
 
+ <ul class="nav nav-pills mb-3">
+   <li class="nav-item" *ngFor="let kat of kategorien">
+      <a class="nav-link" style="cursor: pointer;"
+         [class.active]="ausgewaehlteKategorie === kat"
+         (click)="kategorieWaehlen(kat)">{{ kat }}</a>
+   </li>
+ </ul>
+
+ <div class="mb-3">
+   <input type="text" class="form-control" placeholder="Wunsch suchen..."
+            [(ngModel)]="suchbegriff">
+ </div>
+
  <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let wunsch of wuensche">
+    <div class="col-md-4 mb-3" *ngFor="let wunsch of gefilterteWuensche">
         <div class="card" style="width: 18rem;">
         <img *ngIf="wunsch.bildUrl" [src] ="wunsch.bildUrl" class="card-img-top" alt="Wunschbild">
             <div class="card-body">
@@ -26,5 +39,5 @@
     </div>
  </div>
 
-  <p *ngIf="wuensche.length === 0">Noch keine Wünsche vorhanden.</p>
+  <p *ngIf="gefilterteWuensche.length === 0">Noch keine Wünsche vorhanden.</p>
 </div>
