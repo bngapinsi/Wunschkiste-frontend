@@ -30,16 +30,29 @@ export class Wunsch {
     return this.http.get<WunschItem>(`${this.apiUrl}/${id}`)
   }
 
-  create(wunsch: WunschItem): Observable<WunschItem> {
+  create(wunsch: WunschItem, bild?: File): Observable<WunschItem> {
+    const formData = this.buildFormData(wunsch, bild);
     return this.http.post<WunschItem>(this.apiUrl, wunsch);
   }
 
-  update(id: string, wunsch: Partial<WunschItem>): Observable<WunschItem> {
+  update(id: string, wunsch: Partial<WunschItem>, bild?: File): Observable<WunschItem> {
+    const formData = this.buildFormData(wunsch, bild);
     return this.http.patch<WunschItem>(`${this.apiUrl}/${id}`, wunsch);
   }
 
   delete(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+
+  private buildFormData(wunsch: Partial<WunschItem>, bild?: File): FormData {
+    const formData = new FormData();
+    if (wunsch.titel) formData.append('titel', wunsch.titel);
+    if (wunsch.kategorie) formData.append('kategorie', wunsch.kategorie);
+    if (wunsch.preis != null) formData.append('preis', String(wunsch.preis));
+    if (wunsch.link) formData.append('link', wunsch.link);
+    if (wunsch.notiz) formData.append('notiz', wunsch.notiz);
+    if (bild) formData.append('bild', bild);
+    return formData;
   }
 
 

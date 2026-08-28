@@ -1,13 +1,14 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Wunsch, WunschItem } from '../wunsch';
 import { Auth } from '../auth';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-wunsch-list',
-  imports: [CommonModule, RouterLink],//CommonModule für *ngFor im Template und RouterLink für den Link zum Formular
+  imports: [CommonModule, RouterLink, FormsModule],//CommonModule für *ngFor im Template und RouterLink für den Link zum Formular
   templateUrl: './wunsch-list.html',
   styleUrl: './wunsch-list.css',
 })
@@ -35,7 +36,7 @@ export class WunschList implements OnInit{
     return ['Alle', ...vorhandene];
   }
 
-  get gefiltereWuensche(): WunschItem[] {
+  get gefilterteWuensche(): WunschItem[] {
     return this.wuensche.filter(wunsch => {
       const passtKategorie = this.ausgewaehlteKategorie === 'Alle' || wunsch.kategorie === this.ausgewaehlteKategorie;
 
