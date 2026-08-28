@@ -39,6 +39,15 @@ export class WunschForm implements OnInit{
     }
   }
 
+  ausgwaehltesBild?: File;
+
+  onBildAusgewaehlt(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.ausgwaehltesBild = input.files[0];
+    }
+  }
+
   speichern(): void {
 
     if(this.wunsch.preis === 0) {
