@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Auth } from './auth';
 
 export interface WunschItem{
   id?: string;
@@ -19,8 +20,10 @@ export interface WunschItem{
 
 export class Wunsch {
   private apiUrl = 'http://localhost:3000/wuensche';
+  private auth = inject(Auth);
 
   constructor(private http: HttpClient) {}
+  
 
   getAll(): Observable<WunschItem[]> {
     return this.http.get<WunschItem[]>(this.apiUrl);

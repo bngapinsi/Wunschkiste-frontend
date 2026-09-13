@@ -9,35 +9,38 @@ export interface Nutzer{
   vorname: string;
   nachname: string;
   passwort: string;
+  role?: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
-  private apiUrl = 'http://localhost:3000';
+  baseUrl = 'http://localhost:3000';
+  user: WritableSignal<Nutzer> = signal({ id: '0', benutzername: '', passwort: '', vorname: '', nachname: '', role: ''});
+  token: WritableSignal<string> = signal('');
+  loggedIn: Signal<boolean> = computed(() => this.user().id != '0' || false);
+  isAdmin: Signal<boolean> = computed(() => this.user().role == 'admin' || false);
+  name: Signal<string> = computed(() => this.user().vorname);
 
   constructor(private http: HttpClient) {}
 
-  private currentName = signal<string>('');
-  private currentToken = signal<string>('');
-  private currentUsername = signal<string>('');
-  private currentRole = signal<string>('');
+  setUser(token: string, user: Nutzer) {
+    this.user.set(user);
+    this.token.set(token);
+  }
+  
 
-  getName() {
-    return this.currentName;
+  unsetUser(): void {
+    this.user.set({ id: '0', benutzername: '', passwort: '', vorname: '', nachname: '', role: ''});
+    this.token.set('');
   }
 
-  loggedIn = () => !!this.currentToken();
-  isAdmin = () => this.currentRole() === 'admin';
-
-  //Registrierung: legt einen neuen Nutzer im Backend an
-  registrieren(nutzer: Nutzer): Observable<Nutzer>{
-   return this.http.post<Nutzer>(`${this.apiUrl}/registrieren`, nutzer);
+  registrieren(nutzer: Nutzer): Observable<any> {
+    return this.http.post(this.baseUrl + '/registrieren', nutzer);
   }
 
-  //Anmeldung: prüft benutzername und passwort im Backend
-  anmelden(benutzername: string, passwort: string): Observable<Nutzer>{
-   return this.http.post<Nutzer>(`${this.apiUrl}/anmelden`, {benutzername, passwort});
+  anmelden(nutzer: { benutzername: string; passwort: string; }): Observable<any> {
+    return this.http.post(this.baseUrl + '/anmelden', nutzer);
   }
 }

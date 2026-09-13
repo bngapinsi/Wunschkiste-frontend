@@ -39,9 +39,9 @@ export class Login {
       nachname: this.nachname,
       passwort: this.neuesPasswort
     }).subscribe({
-      next: (nutzer) => {
-      this.auth.getName().set(nutzer.vorname);
-      this.router.navigate(['/wuensche']);
+      next: () => {
+      this.fehlerText = 'Registrierung erfolgreich, bitte anmelden. ';
+      this.modus = 'anmelden';
       },
       error: () => {
         this.fehlerText = 'Registrierung fehlgeschlagen.';
@@ -51,9 +51,9 @@ export class Login {
   }
 
   anmelden(): void {
-    this.auth.anmelden(this.benutzername, this.passwort).subscribe({
-      next: (nutzer) => {
-        this.auth.getName().set(nutzer.vorname);
+    this.auth.anmelden({benutzername: this.benutzername, passwort: this.passwort}).subscribe({
+      next: (response: any) => {
+        this.auth.setUser(response.token, response.user);
         this.router.navigate(['/wuensche']);
       },
       error: () => {
