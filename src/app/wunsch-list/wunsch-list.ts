@@ -22,7 +22,7 @@ export class WunschList implements OnInit{
   private wunschService = inject(Wunsch);
   private auth = inject(Auth);
 
-  name = this.auth.getName();
+  name = this.auth.name();
 
   ngOnInit(): void {
     this.wunschService.getAll().subscribe({

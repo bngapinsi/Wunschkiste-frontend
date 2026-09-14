@@ -32,7 +32,23 @@ export class Login {
     this.fehlerText = '';
   }
 
+  validRegistrieren(): boolean {
+    const check = 
+    !!this.vorname && !!this.nachname && !!this.neuerBenutzername && this.neuesPasswort.length >= 8;
+    return check;
+  }
+
+  validAnmelden(): boolean {
+    const check = 
+    !!this.benutzername && !!this.passwort;
+    return check;
+  }
+
   registrieren(): void {
+    if (!this.validRegistrieren()) {
+      this.fehlerText = 'Bitte alle Felder ausfüllen. Passwort muss mind. 8 Zeichen haben.';
+      return;
+    }
     this.auth.registrieren({
       benutzername: this.neuerBenutzername,
       vorname: this.vorname,
@@ -51,6 +67,10 @@ export class Login {
   }
 
   anmelden(): void {
+    if (!this.validAnmelden()) {
+      this.fehlerText = 'Bitte Benutzername und Passwort eingeben.';
+      return;
+    }
     this.auth.anmelden({benutzername: this.benutzername, passwort: this.passwort}).subscribe({
       next: (response: any) => {
         this.auth.setUser(response.token, response.user);

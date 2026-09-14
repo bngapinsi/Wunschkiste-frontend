@@ -25,6 +25,7 @@
            <input type="password" class="form-control" [(ngModel)]="passwort" name="passwort" required>
         </div>
         <button type="submit" class="btn btn-primary w-100">Anmelden</button>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!validAnmelden()">Anmelden</button>
     </form>
 
     <form *ngIf="modus === 'registrieren' " (ngSubmit)="registrieren()">
@@ -44,7 +45,7 @@
             <label class="form-label">Passwort</label>
             <input type="text" class="form-control" [(ngModel)]="passwort" name="passwort" required>
         </div>
-        <button type="submit" class="btn btn-success w-100">Registrieren</button>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!validRegistrieren">Registrieren</button>
     </form>
 
 </div>
