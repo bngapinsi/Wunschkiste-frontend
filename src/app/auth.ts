@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Observable } from 'rxjs';
 //Struktur eines registrierten Nutzers
@@ -9,7 +9,7 @@ export interface Nutzer{
   vorname: string;
   nachname: string;
   passwort: string;
-  role?: string;
+  
 }
 
 @Injectable({
@@ -20,7 +20,6 @@ export class Auth {
   user: WritableSignal<Nutzer> = signal({ id: '0', benutzername: '', passwort: '', vorname: '', nachname: '', role: ''});
   token: WritableSignal<string> = signal('');
   loggedIn: Signal<boolean> = computed(() => this.user().id != '0' || false);
-  isAdmin: Signal<boolean> = computed(() => this.user().role == 'admin' || false);
   name: Signal<string> = computed(() => this.user().vorname);
 
   constructor(private http: HttpClient) {}
@@ -32,7 +31,7 @@ export class Auth {
   
 
   unsetUser(): void {
-    this.user.set({ id: '0', benutzername: '', passwort: '', vorname: '', nachname: '', role: ''});
+    this.user.set({ id: '0', benutzername: '', passwort: '', vorname: '', nachname: ''});
     this.token.set('');
   }
 
