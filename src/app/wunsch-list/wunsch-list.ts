@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Wunsch, WunschItem } from '../wunsch';
 import { Auth } from '../auth';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,8 +22,9 @@ export class WunschList implements OnInit{
 
   private wunschService = inject(Wunsch);
   private auth = inject(Auth);
+  private router = inject(Router);
 
-  name = this.auth.name();
+  name = this.auth.name;
 
   ngOnInit(): void {
     this.wunschService.getAll().subscribe({
@@ -58,6 +60,10 @@ export class WunschList implements OnInit{
       error: (err) => console.error('Fehler beim Löschen:', err)
     })
   }
+  logout(): void {
+  this.auth.unsetUser();
+  this.router.navigate(['/']);
+}
 
   
 }
