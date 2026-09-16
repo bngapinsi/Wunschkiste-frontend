@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { Auth } from '../auth';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Confirm } from '../confirm/confirm';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Confirm],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -24,8 +25,22 @@ export class Login {
 
   fehlerText = '';
 
+  dialogSichtbar = false;
+  dialogHeadline = '';
+  dialogInfo = '';
+
   private auth = inject(Auth);
   private router = inject(Router);
+
+  openDialog(headline: string, info: string): void {
+    this.dialogHeadline = headline;
+    this.dialogInfo = info;
+    this.dialogSichtbar = true;
+  }
+
+  closeDialog(): void {
+    this.dialogSichtbar = false;
+  }
 
   modusWechseln(neuerModus: 'anmelden' | 'registrieren'): void {
     this.modus = neuerModus;
@@ -56,11 +71,11 @@ export class Login {
       passwort: this.neuesPasswort
     }).subscribe({
       next: () => {
-      this.fehlerText = 'Registrierung erfolgreich, bitte anmelden. ';
+      this.openDialog ('Erfolg', 'Registrierung erfolgreich, bitte anmelden');
       this.modus = 'anmelden';
       },
       error: () => {
-        this.fehlerText = 'Registrierung fehlgeschlagen.';
+        this.openDialog ('Fehler', 'Registrierung fehlgeschlagen.')
       }
     })
     
