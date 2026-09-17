@@ -1,7 +1,7 @@
 <div class="container mt-4" style="max-width: 400px;">
     <h2>Willkommen</h2>
 
-    <ul class="nav nav tabs mb-3">
+    <ul class="nav nav-tabs mb-3">
         <li class="nav-item">
             <a class="nav-link" [class.active]="modus === 'anmelden'"
                (click)="modusWechseln('anmelden')" style="cursor: pointer;">Anmelden</a>
@@ -24,7 +24,6 @@
            <label class="form-label">Passwort</label>
            <input type="password" class="form-control" [(ngModel)]="passwort" name="passwort" required>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Anmelden</button>
         <button type="submit" class="btn btn-primary w-100" [disabled]="!validAnmelden()">Anmelden</button>
     </form>
 
@@ -39,13 +38,18 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Benutzername</label>
-            <input type="text" class="form-control" [(ngModel)]="benutzername" name="benutzername" required>
+            <input type="text" class="form-control" [(ngModel)]="neuerBenutzername" name="neuerBenutzername" required>
         </div>
         <div class="mb-3">
             <label class="form-label">Passwort</label>
-            <input type="password" class="form-control" [(ngModel)]="neuesPasswort" name="neuesPasswort" required>
+            <div class="input-group">
+                <input [type]="passwortSichtbar ? 'text' : 'password' " class="form-control" [(ngModel)]="passwort" name="passwort" required>
+                <button type="button" class="btn btn-outline-secondary" (click)="togglePasswortSichtbar()">
+                    <i class="bi" [class.bi-eye]="!passwortSichtbar" [class.bi-eye-slash]="passwortSichtbar"></i>
+                </button>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary w-100" [disabled]="!validRegistrieren">Registrieren</button>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!validRegistrieren()">Registrieren</button>
     </form>
 
 </div>

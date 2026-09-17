@@ -29,8 +29,19 @@ export class Login {
   dialogHeadline = '';
   dialogInfo = '';
 
+  passwortSichtbar = false;
+  neuesPasswortSichtbar = false;
+
   private auth = inject(Auth);
   private router = inject(Router);
+
+  togglePasswortSichtbar(): void {
+    this.passwortSichtbar = !this.passwortSichtbar
+  }
+
+  toggleNeuesPasswort(): void {
+    this.neuesPasswortSichtbar = !this.neuesPasswortSichtbar
+  }
 
   openDialog(headline: string, info: string): void {
     this.dialogHeadline = headline;
