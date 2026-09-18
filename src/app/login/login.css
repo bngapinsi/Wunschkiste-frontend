@@ -1,0 +1,12 @@
+h2 {
+font-size: 2.5rem;
+color: 	transparent;
+-webkit-text-stroke: 2px #8b5a2b;
+}
+
+:host{
+    display: block;
+    min-height: 110vh;
+    background-color: #ffa07a6a;
+    padding-top: 2rem;
+}

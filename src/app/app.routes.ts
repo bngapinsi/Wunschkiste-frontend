@@ -8,5 +8,6 @@ import { authGuard } from './auth-guard';
 export const routes: Routes = [
     {path: '', component: Login, pathMatch: 'full'},
     {path: 'wuensche', component: WunschList, canActivate: [authGuard]},
-    {path: 'neu', component: WunschForm, canActivate: [authGuard]}
+    {path: 'neu', component: WunschForm, canActivate: [authGuard]},
+    {path: 'bearbeiten/:id', component: WunschForm, canActivate: [authGuard]}
 ];

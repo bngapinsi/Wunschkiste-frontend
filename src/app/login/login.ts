@@ -75,6 +75,7 @@ export class Login {
       this.fehlerText = 'Bitte alle Felder ausfüllen. Passwort muss mind. 8 Zeichen haben.';
       return;
     }
+    
     this.auth.registrieren({
       benutzername: this.neuerBenutzername,
       vorname: this.vorname,
