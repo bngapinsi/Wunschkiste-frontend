@@ -20,6 +20,7 @@ export interface WunschItem{
 
 export class Wunsch {
   private apiUrl = 'http://localhost:3000/wuensche';
+  private baseUrl = 'http://localhost:3000';
   private auth = inject(Auth);
 
   constructor(private http: HttpClient) {}
@@ -29,6 +30,11 @@ export class Wunsch {
       authorization: this.auth.token(),
       username: this.auth.user().benutzername
     });
+  }
+
+   bildUrl(pfad?: string): string {
+    if(!pfad) return '';
+    return `${this.baseUrl}${pfad}`;
   }
 
   getAll(): Observable<WunschItem[]> {

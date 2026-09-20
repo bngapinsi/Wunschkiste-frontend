@@ -39,33 +39,30 @@ export class WunschForm implements OnInit{
     }
   }
 
-  ausgwaehltesBild?: File;
+  ausgewaehltesBild?: File;
 
   onBildAusgewaehlt(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.ausgwaehltesBild = input.files[0];
+      this.ausgewaehltesBild = input.files[0];
     }
   }
 
   speichern(): void {
-
-    if(this.wunsch.preis === 0) {
-      this.wunsch.preis = 0;
-    }
-     
-    if (this.istBearbeitung && this.wunschId) {
-      this.wunschService.update(this.wunschId, this.wunsch).subscribe({
-        next: () => this.router.navigate(['/wuensche']),
-        error: (err) => console.error('Fehler beim Aktualisieren:', err)
-      });
-    }
-    else {
-      this.wunschService.create(this.wunsch).subscribe({
-        next: () => this.router.navigate(['/wuensche']),
-        error: (err) => console.error('fehler beim Anlegen:', err)
-      });
-    }
+  if (this.wunsch.preis === null || this.wunsch.preis === undefined) {
+    this.wunsch.preis = 0;
   }
+  if (this.istBearbeitung && this.wunschId) {
+    this.wunschService.update(this.wunschId, this.wunsch, this.ausgewaehltesBild).subscribe({
+      next: () => this.router.navigate(['/wuensche']),
+      error: (err) => console.error('Fehler beim Aktualisieren:', err)
+    });
+  } else {
+    this.wunschService.create(this.wunsch, this.ausgewaehltesBild).subscribe({
+      next: () => this.router.navigate(['/wuensche']),
+      error: (err) => console.error('fehler beim Anlegen:', err)
+    });
+  }
+}
 
 }
