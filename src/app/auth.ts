@@ -17,22 +17,32 @@ export interface Nutzer{
 })
 export class Auth {
   baseUrl = 'http://localhost:3000';
-  user: WritableSignal<Nutzer> = signal({ id: '0', benutzername: '', passwort: '', vorname: '', nachname: '', role: ''});
-  token: WritableSignal<string> = signal('');
+  user: WritableSignal<Nutzer> = signal(this.ladeUser());
+  token: WritableSignal<string> = signal(localStorage.getItem('token') ?? '');
   loggedIn: Signal<boolean> = computed(() => this.user().id != '0' || false);
   name: Signal<string> = computed(() => this.user().vorname);
 
   constructor(private http: HttpClient) {}
 
+  private ladeUser(): Nutzer {
+    const gespeichert = localStorage.getItem('user');
+    return gespeichert ? JSON.parse(gespeichert) : { id: '0', benutzername: '', passwort: '', vorname: '', nachname: ''};
+  }
+
   setUser(token: string, user: Nutzer) {
     this.user.set(user);
     this.token.set(token);
+    localStorage.setItem('user', JSON.stringify(user)); //für Reload merken
+    localStorage.setItem('token', token)
   }
   
 
   unsetUser(): void {
     this.user.set({ id: '0', benutzername: '', passwort: '', vorname: '', nachname: ''});
     this.token.set('');
+    localStorage.removeItem('user'); //beim Logout wieder
+    localStorage.removeItem('token');
+
   }
 
   registrieren(nutzer: Nutzer): Observable<any> {
