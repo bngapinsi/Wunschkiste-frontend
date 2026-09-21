@@ -3,3 +3,44 @@ font-size: 2.5rem;
 color: 	transparent;
 -webkit-text-stroke: 2px #8b5a2b;
 }
+
+.wunsch-card {
+  display: grid;
+  grid-template-rows: 180px 50px 30px 40px 50px;
+  /* image | title | subtitle | notiz/link | actions */
+  height: 100%;
+}
+
+.wunsch-bild {
+
+  max-width: 180px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-subtitle {
+  overflow: hidden;
+}
+
+.wunsch-notiz,
+.card-link {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.wunsch-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

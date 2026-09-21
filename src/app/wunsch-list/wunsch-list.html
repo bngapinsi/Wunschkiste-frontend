@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container-fluid" style="background-color: rgb(184, 117, 40);">
  <div class="d-flex justify-content-between align-items-center mb-3">
     <!-- der Vorname aus dem Auth-Service, gefolgt von "s Wunschkiste" -->
     <h1>{{ name() }}s Wunschkiste</h1>
@@ -9,7 +9,8 @@
     <button class="btn btn-outline-secondary" (click)="logout()">Logout</button>
  </div>
 
- <a routerLink="/neu" class="btn btn-primary position-fixed bottom-0 end-0 m-5">+ Neuer Wunsch</a>
+
+ <a routerLink="/neu" class="btn btn-primary position-fixed bottom-0 end-0 m-5" style="z-index: 1030;">+ Neuer Wunsch</a>
 
  <ul class="nav nav-pills mb-3">
    <li class="nav-item" *ngFor="let kat of kategorie">
@@ -19,24 +20,34 @@
    </li>
  </ul>
 
- <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let wunsch of gefilterteWuensche">
-        <div class="card" style="width: 18rem;">
-        <img *ngIf="wunsch.bildUrl" [src] ="bildUrl(wunsch.bildUrl)" class="card-img-top" alt="Wunschbild">
-            <div class="card-body">
-             <h5 class="card-title">{{ wunsch.titel }}</h5>
-             <h6 class="card-subtitle mb-2 text-body-secondary">{{ wunsch.kategorie }} · {{ wunsch.preis }} €</h6>
-             <p *ngIf="wunsch.notiz" class="card-text">{{ wunsch.notiz }} </p>
-             <a *ngIf="wunsch.link" [href]="wunsch.link" class="card-link">Link</a>
 
-             <div class="mt-2">
-                <a [routerLink]="['/bearbeiten' , wunsch.id]" class="btn btn-sm btn-outline-secondary">Bearbeiten</a>
-                <button (click)="loeschen(wunsch.id!)" class="btn btn-sm btn-outline-danger">Löschen</button>
-             </div>
-            </div>
-        </div>
+<div class="row">
+ 
+<div class="col-6 col-md-3 mb-4" *ngFor="let wunsch of gefilterteWuensche">
+  <div class="card wunsch-card" style="background-color: rgba(119, 79, 33, 0.948);">
+
+   <div class="d-flex justify-content-center">
+    <img *ngIf="wunsch.bildUrl" [src]="bildUrl(wunsch.bildUrl)" class="wunsch-bild" alt="Wunschbild">
+    <div *ngIf="!wunsch.bildUrl" class="wunsch-bild bg-light"></div>
     </div>
- </div>
 
+    <h5 class="card-title px-2 pt-2 mb-0">{{ wunsch.titel }}</h5>
+
+    <h6 class="card-subtitle px-2 text-body-secondary mb-0">{{ wunsch.kategorie }} · {{ wunsch.preis }} €</h6>
+
+    <div class="px-2">
+      <p *ngIf="wunsch.notiz" class="wunsch-notiz mb-0">{{ wunsch.notiz }}</p>
+      <a *ngIf="wunsch.link" [href]="wunsch.link" class="card-link">Link</a>
+    </div>
+
+    <div class="wunsch-actions px-2">
+      <a [routerLink]="['/bearbeiten', wunsch.id]" class="btn btn-sm btn-outline-secondary">Bearbeiten</a>
+      <button (click)="loeschen(wunsch.id!)" class="btn btn-sm btn-outline-danger">Löschen</button>
+    </div>
+
+  </div>
+  </div>
+</div>
+   
   <p *ngIf="gefilterteWuensche.length === 0">Noch keine Wünsche vorhanden.</p>
 </div>
