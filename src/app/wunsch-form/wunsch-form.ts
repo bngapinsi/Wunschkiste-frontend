@@ -49,6 +49,10 @@ export class WunschForm implements OnInit{
   }
 
   speichern(): void {
+  if (!this.wunsch.titel || this.wunsch.titel.trim() === '') {
+    alert('Bitte einen Titel eingeben.');
+    return;
+  }
   if (this.wunsch.preis === null || this.wunsch.preis === undefined) {
     this.wunsch.preis = 0;
   }

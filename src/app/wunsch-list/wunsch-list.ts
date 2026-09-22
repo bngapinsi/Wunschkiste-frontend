@@ -40,7 +40,7 @@ export class WunschList implements OnInit {
   get gefilterteWuensche(): WunschItem[] {
     return this.wuensche().filter((wunsch) => {
       const passtKategorie = this.ausgewaehlteKategorie === 'Alle' || wunsch.kategorie === this.ausgewaehlteKategorie;
-      const passtSuche = wunsch.titel.toLowerCase().includes(this.suchbegriff.toLowerCase());
+      const passtSuche = (wunsch.titel ?? '').toLowerCase().includes(this.suchbegriff.toLowerCase());
       return passtKategorie && passtSuche;
     });
   }

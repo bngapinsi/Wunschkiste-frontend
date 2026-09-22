@@ -1,4 +1,6 @@
-<div class="container-fluid" style="background-color: rgb(184, 117, 40);">
+
+<div class="container-fluid" >
+   <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-transprent py-3 px-4"> 
  <div class="d-flex justify-content-between align-items-center mb-3">
     <!-- der Vorname aus dem Auth-Service, gefolgt von "s Wunschkiste" -->
     <h1>{{ name() }}s Wunschkiste</h1>
@@ -8,6 +10,7 @@
  </div>
     <button class="btn btn-outline-secondary" (click)="logout()">Logout</button>
  </div>
+ </nav>
 
 
  <a routerLink="/neu" class="btn btn-primary position-fixed bottom-0 end-0 m-5" style="z-index: 1030;">+ Neuer Wunsch</a>
@@ -24,7 +27,7 @@
 <div class="row">
  
 <div class="col-6 col-md-3 mb-4" *ngFor="let wunsch of gefilterteWuensche">
-  <div class="card wunsch-card" style="background-color: rgba(119, 79, 33, 0.948);">
+  <div class="card wunsch-card" >
 
    <div class="d-flex justify-content-center">
     <img *ngIf="wunsch.bildUrl" [src]="bildUrl(wunsch.bildUrl)" class="wunsch-bild" alt="Wunschbild">
