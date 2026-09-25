@@ -9,6 +9,21 @@ color: 	transparent;
   grid-template-rows: 180px 50px 30px 40px 50px;
   /* image | title | subtitle | notiz/link | actions */
   height: 100%;
+  border: 5px solid rgba(216, 189, 31, 0.955);
+  
+}
+
+
+:host{
+    display: block;
+    min-height: 110vh;
+    
+    padding-top: 2rem;
+}
+
+.wunsch-button {
+    background-color: #8b5a2b;
+    color: white;
 }
 
 .wunsch-bild {
@@ -30,12 +45,20 @@ color: 	transparent;
   overflow: hidden;
 }
 
-.wunsch-notiz,
-.card-link {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+.wunsch-notiz {
+  margin-bottom: 0;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.85rem;
+}
+
+.card-link {
+  display: block;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.85rem;
 }
 
@@ -44,3 +67,4 @@ color: 	transparent;
   align-items: center;
   gap: 0.5rem;
 }
+
