@@ -1,5 +1,5 @@
 <div class="container-fluid" >
- <div class="d-flex justify-content-between align-items-center mb-3">
+ <div class="d-flex justify-content-between align-items-center mb-3 header-bereich">
     <!-- der Vorname aus dem Auth-Service, gefolgt von "s Wunschkiste" -->
     <h1>{{ name() }}s Wunschkiste</h1>
      <div class="mb-2">
@@ -12,18 +12,18 @@
 
  <a routerLink="/neu" class="wunsch-button btn btn-primary position-fixed bottom-0 end-0 m-5" style="z-index: 1030;">+ Neuer Wunsch</a>
 
- <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-transprent py-3 px-4">
- <ul class="nav nav-pills mb-3">
+
+ <ul class="nav nav-pills mt-4 mb-4">
    <li class="nav-item" *ngFor="let kat of kategorie">
       <a class="nav-link" style="cursor: pointer;"
          [class.active]="ausgewaehlteKategorie === kat"
          (click)="kategorieWaehlen(kat)">{{ kat }}</a>
    </li>
  </ul>
- </nav>
+ 
 
 
-<div class="row">
+<div class="row mt-5">
  
 <div class="col-6 col-md-3 mb-4" *ngFor="let wunsch of gefilterteWuensche">
   <div class="card wunsch-card" >

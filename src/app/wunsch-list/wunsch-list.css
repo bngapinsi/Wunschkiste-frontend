@@ -1,5 +1,5 @@
 h1 {
-font-size: 2.5rem;
+font-size: 3rem;
 color: 	transparent;
 -webkit-text-stroke: 2px #8b5a2b;
 }
@@ -10,14 +10,39 @@ color: 	transparent;
   /* image | title | subtitle | notiz/link | actions */
   height: 100%;
   border: 5px solid rgba(216, 189, 31, 0.955);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   
+}
+
+.form-control {
+    border-color: #8b5a2b;
+}
+
+.btn-outline-secondary {
+border-color: #8b5a2b;
+color: #8b5a2b;
+}
+
+.btn-outline-secondary:hover {
+    background-color: rgba(216, 189, 31, 0.955);
+    color: white;
+    border-color: white;
+}
+
+.nav-pills .nav-link {
+    color: rgba(216, 189, 31, 0.955);
+}
+
+.nav-pills .nav-link.active {
+    background-color: #8b5a2b;
+    color: white;
 }
 
 
 :host{
     display: block;
     min-height: 110vh;
-    
+    background-color: whitesmoke;
     padding-top: 2rem;
 }
 
@@ -51,6 +76,7 @@ color: 	transparent;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.85rem;
+  min-width: 0;
 }
 
 .card-link {
@@ -60,6 +86,11 @@ color: 	transparent;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.85rem;
+  min-width: 0;
+}
+
+.wunsch-card .px-2 {
+    min-width: 0;
 }
 
 .wunsch-actions {

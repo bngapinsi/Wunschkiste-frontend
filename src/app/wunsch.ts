@@ -65,7 +65,7 @@ export class Wunsch {
     if (wunsch.kategorie) formData.append('kategorie', wunsch.kategorie);
     if (wunsch.preis != null) formData.append('preis', String(wunsch.preis));
     if (wunsch.link) formData.append('link', wunsch.link);
-    if (wunsch.notiz) formData.append('notiz', wunsch.notiz);
+    if (wunsch.notiz) formData.append('notiz', wunsch.notiz ?? '');
     if (bild) formData.append('bild', bild);
     return formData;
   }

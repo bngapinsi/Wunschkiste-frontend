@@ -1,0 +1,43 @@
+h2 {
+font-size: 3.5rem;
+color: 	transparent;
+-webkit-text-stroke: 2px #8b5a2b;
+text-align: center;
+}
+
+:host{
+    display: block;
+    min-height: 110vh;
+    background-color: whitesmoke;
+    padding-top: 2rem;
+}
+
+.wunsch-card {
+    background: linear-gradient(180deg, #a67c52 0%, #8b5a2b 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+.form-label {
+    color: white;
+}
+
+.btn-primary {
+    border-color: rgba(225, 193, 11, 0.908);
+    background-color: rgba(225, 193, 11, 0.908);
+}
+
+.btn-outline-secondary {
+    border-color: rgba(225, 193, 11, 0.908);
+    color: rgba(225, 193, 11, 0.908);
+}
+
+.btn-outline-secondary:hover {
+    background-color: white;
+}
+
+
+
+

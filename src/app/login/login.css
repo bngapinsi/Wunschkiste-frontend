@@ -1,12 +1,46 @@
 h2 {
-font-size: 2.5rem;
+font-size: 3.5rem;
 color: 	transparent;
 -webkit-text-stroke: 2px #8b5a2b;
+text-align: center;
+margin-bottom: 2.5rem;
+white-space: nowrap;
+}
+
+.form-label {
+color: white;
+}
+
+.login-card {
+    background: linear-gradient(180deg, #a67c52 0%, #8b5a2b 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.nav-tabs .nav-link:not(active) {
+    color: rgba(225, 193, 11, 0.908);
+}
+
+.btn-primary {
+    background-color: rgba(225, 193, 11, 0.908);
+    border-color: rgba(225, 193, 11, 0.908);
+
+}
+
+.input-group .bi {
+    color: rgba(225, 193, 11, 0.908);
+}
+
+.input-group .btn {
+    border-color: white;
 }
 
 :host{
     display: block;
     min-height: 110vh;
-    background-color: #ffa07a6a;
+    background-color: whitesmoke;
     padding-top: 2rem;
 }

@@ -1,6 +1,7 @@
+<h2> {{ istBearbeitung ? 'Wunsch bearbeiten' : 'Neuer Wunsch'}}</h2>
 <div class="container mt-4" style="max-width: 500px;">
-    <h2> {{ istBearbeitung ? 'Wunsch bearbeiten' : 'Neuer Wunsch'}}</h2>
-    <form (ngSubmit)="speichern()">
+    
+    <form class="wunsch-card"  (ngSubmit)="speichern()">
         <div class="mb-3">
             <label class="form-label">Titel</label>
             <input type="text" class="form-control" [(ngModel)]="wunsch.titel" name="titel" required>
