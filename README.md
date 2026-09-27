@@ -37,12 +37,12 @@ cd Wunschkiste-frontend
 npm install
 ```
 
-3.Entwicklungsserver starten:
+3. Entwicklungsserver starten:
 ```bash
 ng serve
 ```
 
-4.Im Browser öffnen:
+4. Im Browser öffnen:
 http://localhost:4200
 
 ## Verwendung von KI-Tools
