@@ -49,12 +49,12 @@ http://localhost:4200
 
 Bei diesem Projekt wurden KI-Tools unterstützend eingesetzt:
 - **Claude (Anthropic)**:
-Konzeptverständnis: Erklärungen zu Angular-Grundlagen (Komponenten, Signals, Property Binding, Routing-Parameter) und TypeScript-Konzepten während der Entwicklung
-Debugging: Fehlersuche bei TypeScript-/Angular-Fehlern (fehlende Imports, falsche Parameterübergabe, Typkonflikte im Service), sowie bei Git- und Terminal-Problemen (Port-Konflikte, fehlender Remote)
-Frontend: Aufbau der Angular-Komponenten (Login mit Anmelden/Registrieren, Suche und Kategorie-Filter)
+- Konzeptverständnis: Erklärungen zu Angular-Grundlagen (Komponenten, Signals, Property Binding, Routing-Parameter) und TypeScript-Konzepten während der Entwicklung
+- Debugging: Fehlersuche bei TypeScript-/Angular-Fehlern (fehlende Imports, falsche Parameterübergabe, Typkonflikte im Service), sowie bei Git- und Terminal-Problemen (Port-Konflikte, fehlender Remote)
+- Frontend: Aufbau der Angular-Komponenten (Login mit Anmelden/Registrieren, Suche und Kategorie-Filter)
 - **Gemini (Google)**:
-Bootstrap & CSS-Styling: Einsatz von Bootstrap Spacing Utilities (gap, Margins) und Abstandsregeln.
-Login-Screen: Layout und Styling der Login- und Registrierungskarte im Holz- und Kisten-Look (braune Farbverläufe, Kisten-Form).
+- Bootstrap & CSS-Styling: Einsatz von Bootstrap Spacing Utilities (gap, Margins) und Abstandsregeln.
+- Login-Screen: Layout und Styling der Login- und Registrierungskarte im Holz- und Kisten-Look (braune Farbverläufe, Kisten-Form).
 
 
 
