@@ -1,59 +1,62 @@
-# Frontend
+# Wunschkiste - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.13.
+Eine digitale Wunschliste als Webanwendung. Mit der Wusnchkiste können Nutzer:innen sich registrieren, einloggen und ihre persönliche Wünsche
+(z. B. für Geburtstage oder Feiertage) verwalten.
 
-## Development server
+## Beschreibung
 
-To start a local development server, run:
+Die Wunschkiste ist eine persönliche, geschützte Wunschliste:
+- **Login & Registrierung**: Nutzer:innen registrieren sich mit Vorname, Nachname, Benutzername und Passwort und melden sich anschließend mit Benutzername und Passwort an. Nach dem Login wird die Wunschliste personalisiert.
+-**Wünsche verwalten (CRUD)**: Neue Wünsche anlegen, bestehende bearbeiten und löschen.
+-**Bild-Upload**: Man kann eine Bilddatei hochladen.
+-**Kategorien & Filter**: Die Wünsche lassen sich über eine Filterleiste nach Kategorie sortieren (z. B. "Schmuck", "Kleidung",...) oder per Suchleiste nach Titel durchsuchen.
+-**Responsive Kartenansicht**: Die Wünsche werden als einheitlich große Karten mit Bild, Titel, Preis und Aktionen angezeigt.
+-**Datenschutz pro Nutzer**: jeder Wunsch ist über den eingeloggten Account geschützt (JWT-Authentifizierung) 
 
+## Verwendete Technologien
+
+-**Angular**
+-**HTML**
+-**CSS**
+-**Bootstrap**
+-**TypeScript**
+-**RxJS / HttpClient**
+
+## Installation & Start
+
+### Schritte
+
+1. Repository klonen:
+```bash
+git clone https://github.com/bngapinsi/Wunschkiste-frontend.git
+cd Wunschkiste-frontend
+```
+
+2. Abhängigkeiten installieren:
+```bash
+npm install
+```
+
+3.Entwicklungsserver starten:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4.Im Browser öffnen:
+http://localhost:4200
 
-## Code scaffolding
+## Verwendung von KI-Tools
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Bei diesem Projekt wurden KI-Tools unterstützend eingesetzt:
+-**Claude (Anthropic)**:
+Konzeptverständnis: Erklärungen zu Angular-Grundlagen (Komponenten, Signals, Property Binding, Routing-Parameter) und TypeScript-Konzepten während der Entwicklung
+Debugging: Fehlersuche bei TypeScript-/Angular-Fehlern (fehlende Imports, falsche Parameterübergabe, Typkonflikte im Service), sowie bei Git- und Terminal-Problemen (Port-Konflikte, fehlender Remote)
+Frontend: Aufbau der Angular-Komponenten (Login mit Anmelden/Registrieren, Suche und Kategorie-Filter)
+-**Gemini (Google)**:
+Bootstrap & CSS-Styling: Einsatz von Bootstrap Spacing Utilities (gap, Margins) und Abstandsregeln.
+Login-Screen: Layout und Styling der Login- und Registrierungskarte im Holz- und Kisten-Look (braune Farbverläufe, Kisten-Form).
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
 
-## Building
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
