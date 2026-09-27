@@ -1,6 +1,6 @@
 # Wunschkiste - Frontend
 
-Eine digitale Wunschliste als Webanwendung. Mit der Wusnchkiste können Nutzer:innen sich registrieren, einloggen und ihre persönliche Wünsche
+Eine digitale Wunschliste als Webanwendung. Mit der Wunschkiste können Nutzer:innen sich registrieren, einloggen und ihre persönliche Wünsche
 (z. B. für Geburtstage oder Feiertage) verwalten.
 
 ## Beschreibung
