@@ -1,3 +1,4 @@
+
 # Wunschkiste - Frontend
 
 Eine digitale Wunschliste als Webanwendung. Mit der Wunschkiste können Nutzer:innen sich registrieren, einloggen und ihre persönliche Wünsche
@@ -11,7 +12,21 @@ Die Wunschkiste ist eine persönliche, geschützte Wunschliste:
 - **Bild-Upload**: Man kann eine Bilddatei hochladen.
 - **Kategorien & Filter**: Die Wünsche lassen sich über eine Filterleiste nach Kategorie sortieren (z. B. "Schmuck", "Kleidung",...) oder per  Suchleiste nach Titel durchsuchen.
 - **Responsive Kartenansicht**: Die Wünsche werden als einheitlich große Karten mit Bild, Titel, Preis und Aktionen angezeigt.
-- **Datenschutz pro Nutzer**: jeder Wunsch ist über den eingeloggten Account geschützt (JWT-Authentifizierung) 
+- **Datenschutz pro Nutzer**: jeder Wunsch ist über den eingeloggten Account geschützt (JWT-Authentifizierung)
+
+## Screenshots
+# Login-Seite
+<img width="1470" height="836" alt="Bildschirmfoto 2026-09-28 um 16 45 23" src="https://github.com/user-attachments/assets/f318ef15-a414-46a4-9f56-2a6a829937b5" />
+
+# Wunschliste
+
+<img width="1467" height="736" alt="Bildschirmfoto 2026-09-28 um 17 26 16" src="https://github.com/user-attachments/assets/32e8c732-92f7-4877-904f-e0d74ccb7ffa" />
+<img width="1466" height="386" alt="Bildschirmfoto 2026-09-28 um 17 27 01" src="https://github.com/user-attachments/assets/94e9705e-3b20-4e67-964e-e342e12b7711" />
+
+
+# Wunsch bearbeiten
+<img width="1470" height="833" alt="Bildschirmfoto 2026-09-28 um 17 13 10" src="https://github.com/user-attachments/assets/aa3015e5-4447-4075-ba30-f22bf5a3b15d" />
+
 
 ## Verwendete Technologien
 
