@@ -15,22 +15,22 @@ color: 	transparent;
 }
 
 .form-control {
-    border-color: #8b5a2b;
+    border-color: rgba(216, 189, 31, 0.955);
 }
 
 .btn-outline-secondary {
-border-color: #8b5a2b;
+border-color: transparent;
 color: #8b5a2b;
 }
 
 .btn-outline-secondary:hover {
-    background-color: rgba(216, 189, 31, 0.955);
+    background-color: #8b5a2b;
     color: white;
     border-color: white;
 }
 
 .nav-pills .nav-link {
-    color: rgba(216, 189, 31, 0.955);
+    color: #8b5a2b;
 }
 
 .nav-pills .nav-link.active {
@@ -44,11 +44,25 @@ color: #8b5a2b;
     min-height: 110vh;
     background-color: whitesmoke;
     padding-top: 2rem;
+    padding-bottom: 6rem;
 }
 
 .wunsch-button {
-    background-color: #8b5a2b;
-    color: white;
+    background-color:transparent;
+    color: #8b5a2b;
+    position: fixed;
+    border: rgba(216, 189, 31, 0.955);
+    
+}
+
+.wunsch-button:active {
+    background-color: transparent;
+    color: rgba(216, 189, 31, 0.955);
+}
+
+.wunsch-button-icon {
+    width: 100px;
+    height: 100px;
 }
 
 .wunsch-bild {
